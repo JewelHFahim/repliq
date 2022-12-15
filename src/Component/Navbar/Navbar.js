@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineShopping, AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
 import { BiCategory } from 'react-icons/bi';
@@ -33,19 +33,21 @@ const Navbar = () => {
 
     {/* Small Devices */}
 
-   <div className="btm-nav bg-base-100 lg:hidden">
+   <div className="btm-nav bg-base-100 z-10 lg:hidden ">
 
  <Link to="/"> <button>
-    <AiOutlineHome className="text-2xl"/>
+    <AiOutlineHome className="text-2xl bg-active"/>
     <span className="btm-nav-label text-[12px]">Home</span>
   </button></Link>
 
-  <button>
-   <AiOutlineShopping className="text-2xl"/>
+ <Link to="/orders"> <button>
+   <AiOutlineShopping className="text-2xl bg-active"/>
     <span className="btm-nav-label text-[12px]">Orders</span>
   </button>
+</Link>
 
-<Link to="/products">  <button>
+
+<Link to=""><button >
     <BiCategory className="text-2xl"/>
     <span className="btm-nav-label text-[12px]">Products</span>
   </button>
