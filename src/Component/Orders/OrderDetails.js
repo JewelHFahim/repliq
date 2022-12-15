@@ -8,7 +8,7 @@ const OrderDetails = () => {
 
   return (
 
-    <div className="hero bg-base-200 p-8 mb-8">
+    <div className="hero p-8 mb-8">
     <div className="hero-content flex-col lg:flex-row">
       <img src={image} className="max-w-sm rounded-lg shadow-2xl" alt="" />
       <div>

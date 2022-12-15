@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineShopping, AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
 import { BiCategory } from 'react-icons/bi';
@@ -21,7 +21,7 @@ const Navbar = () => {
 
     <div className="navbar bg-base-100 hidden lg:block">
       <div className="navbar-start">
-        <a className="btn btn-ghost normal-case text-xl">Repliq</a>
+        <Link to="/" className="btn btn-ghost normal-case text-xl">Repliq</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
