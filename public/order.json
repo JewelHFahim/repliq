@@ -1,0 +1,35 @@
+[
+    
+    {
+      "id": 1,
+      "status": "pending",
+      "payment": "OOD",
+      "title": "Acer SB220Q",
+      "price": 599,
+      "description": "21. 5 inches Full Hion colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
+      "rating": {
+        "rate": 2.9,
+        "count": 25
+      }
+    },
+   
+    {
+      "id": 2,
+      "status": "confirmed",
+      "payment": "PAID",
+      "title": "BIYLACLESEN Women",
+      "price": 56.99,
+      "description": "Note:The Jaou can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates",
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
+      "rating": {
+        "rate": 2.6,
+        "count": 23
+      }
+    }
+  
+    
+  ]
+  

@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TiTick } from "react-icons/ti";
 import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineDown } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
+import { FaAngleRight } from "react-icons/fa";
 
 import "./Home.css"
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    //   axios.get("https://fakestoreapi.com/products")
+    axios.get("./Orders.json").then((response) => {
+      setProducts(response.data);
+    });
+  }, []);
+
   return (
     <div>
       {/* Header */}
@@ -27,9 +39,9 @@ const Home = () => {
           </div>
         </div>
         {/* popup message */}
-          <div className="add w-10/12 rounded-md bg-white shadow-xl py-2 px-4" >
+          <div className="add w-10/12 lg:w-6/12 rounded-md bg-white shadow-xl py-2 px-4" >
         <h2 className="text-lg font-semibold">Share More Earn More</h2>
-          <p className="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, cupiditate.</p>
+          <p className="text-left lg:text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, cupiditate.</p>
           <hr />
           <div className="flex justify-between items-center">
             <p className="font-semibold text-orange-600">more information</p>
@@ -79,7 +91,50 @@ const Home = () => {
 </div>
 
 
-    </div>
+{/* Orders Status Section */}
+<div className="grid grid-cols-1 lg:grid-cols-4 gap-5 p-5">
+        {products.map((product) => (
+          product.status === "pending" &&
+          <div>
+
+          <div className="px-5 py-2 mx-5 rounded-lg bg-base-100 shadow-xl lg:h-full">
+          <div className="flex justify-between">
+          <p className="font-semibold">Order: #{product.id}</p>
+          <p>16/12/22</p>
+          </div>
+
+            <div className="flex justify-between rounded-md items-center py-2">
+            <div className="flex">
+            <img className="w-12 lg:w-24" src={product.image} alt=""/>
+            <div className="px-4">
+            <h2 className="">1 unit</h2>
+            <p className="text-info font-semibold">${product.price}</p>
+            </div>
+            </div>
+             {
+                product.payment === "PAID" ?  <button className="bg-green-100 p-2  rounded-lg font-semibold text-green-500">{product.payment}</button>  : <button  className="bg-orange-100 p-2  rounded-lg font-semibold text-orange-500">{product.payment}</button>  
+            }
+            </div>
+
+
+            <hr />
+            <div className="mt-2 flex justify-between">
+            <div>
+            {
+                product.status === "confirmed" ? <p className="rounded-lg font-semibold text-green-500 flex items-center"><span className="badge badge-xs mr-2 badge-success"></span>{product.status}</p> : <p className="rounded-lg font-semibold text-orange-500"><span className="badge badge-xs mr-2 badge-error"></span>{product.status}</p>
+            }
+            </div><Link to = {`/orders/${product.id}`}><button className="btn btn-xs btn-outline">Details <FaAngleRight/> </button></Link>
+            
+            </div>
+
+          </div>
+          </div>
+        ))}
+      </div>
+
+
+      
+  </div>
   );
 };
 

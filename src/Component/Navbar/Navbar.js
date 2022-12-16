@@ -47,16 +47,18 @@ const Navbar = () => {
 </Link>
 
 
-<Link to=""><button >
+<Link to="/categories"><button >
     <BiCategory className="text-2xl"/>
     <span className="btm-nav-label text-[12px]">Products</span>
   </button>
   </Link>
 
-  <button>
+<Link to="/manageorder">
+<button>
     <FiLayers className="text-2xl"/>
     <span className="btm-nav-label text-[12px]">Manage</span>
   </button>
+</Link>
 
   <button className="text-2xl">
     <AiOutlineUser />
