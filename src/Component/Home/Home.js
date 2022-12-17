@@ -13,7 +13,6 @@ const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    //   axios.get("https://fakestoreapi.com/products")
     axios.get("./Orders.json").then((response) => {
       setProducts(response.data);
     });
@@ -59,22 +58,22 @@ const Home = () => {
 
 {/* Dashboard */}
 <div className="grid grid-cols-2 gap-5 text-center my-5 mx-8">
-<div className="shadow-xl p-5 bg-base-100 ">
-  <h3 className="font-semibold text-slate-400">ORDERS</h3>
-  <h3 className="font-semibold text-2xl">33</h3>
-</div>
-<div className="shadow-xl p-5 bg-base-100 rounded-xl">
-  <h3 className="font-semibold text-slate-400">TOTAL SOLD</h3>
-  <h3 className="font-semibold text-2xl">$2,918</h3>
-</div>
-<div className="shadow-xl p-5 bg-base-100 rounded-xl">
-  <h3 className="font-semibold text-slate-400">STORE VIEW</h3>
-  <h3 className="font-semibold text-2xl">301</h3>
-</div>
-<div className="shadow-xl p-5 bg-base-100 rounded-xl">
-  <h3 className="font-semibold text-slate-400">PRODUCT VIEW</h3>
-  <h3 className="font-semibold text-2xl">19,121</h3>
-</div>
+  <div className="shadow-xl p-5 bg-base-100 ">
+    <h3 className="font-semibold text-slate-400">ORDERS</h3>
+    <h3 className="font-semibold text-2xl">33</h3>
+  </div>
+  <div className="shadow-xl p-5 bg-base-100 rounded-xl">
+    <h3 className="font-semibold text-slate-400">TOTAL SOLD</h3>
+    <h3 className="font-semibold text-2xl">$2,918</h3>
+  </div>
+  <div className="shadow-xl p-5 bg-base-100 rounded-xl">
+    <h3 className="font-semibold text-slate-400">STORE VIEW</h3>
+    <h3 className="font-semibold text-2xl">301</h3>
+  </div>
+  <div className="shadow-xl p-5 bg-base-100 rounded-xl">
+    <h3 className="font-semibold text-slate-400">PRODUCT VIEW</h3>
+    <h3 className="font-semibold text-2xl">19,121</h3>
+  </div>
 </div>
 
 {/* Active Orders */}
@@ -85,9 +84,9 @@ const Home = () => {
 
 {/* Status */}
 <div className="flex justify-around items-center mb-6 mx-4">
-<p className="btn btn-sm border-0 btn-info text-white">Pending (150)</p>
-<p className="btn btn-sm border-0 bg-slate-200 text-slate-800">Accepted (50)</p>
-<p className="btn btn-sm border-0 bg-slate-200 text-slate-800">Shipped (350)</p>
+  <p className="btn btn-sm border-0 btn-info text-white">Pending (150)</p>
+  <p className="btn btn-sm border-0 bg-slate-200 text-slate-800">Accepted (50)</p>
+  <p className="btn btn-sm border-0 bg-slate-200 text-slate-800">Shipped (350)</p>
 </div>
 
 
@@ -104,18 +103,17 @@ const Home = () => {
           </div>
 
             <div className="flex justify-between rounded-md items-center py-2">
-            <div className="flex">
-            <img className="w-12 lg:w-24" src={product.image} alt=""/>
-            <div className="px-4">
-            <h2 className="">1 unit</h2>
-            <p className="text-info font-semibold">${product.price}</p>
+              <div className="flex">
+                <img className="w-12 lg:w-24" src={product.image} alt=""/>
+                <div className="px-4">
+                  <h2 className="">1 unit</h2>
+                  <p className="text-info font-semibold">${product.price}</p>
+                </div>
+              </div>
+              {
+                  product.payment === "PAID" ?  <button className="bg-green-100 p-2  rounded-lg font-semibold text-green-500">{product.payment}</button>  : <button  className="bg-orange-100 p-2  rounded-lg font-semibold text-orange-500">{product.payment}</button>  
+              }
             </div>
-            </div>
-             {
-                product.payment === "PAID" ?  <button className="bg-green-100 p-2  rounded-lg font-semibold text-green-500">{product.payment}</button>  : <button  className="bg-orange-100 p-2  rounded-lg font-semibold text-orange-500">{product.payment}</button>  
-            }
-            </div>
-
 
             <hr />
             <div className="mt-2 flex justify-between">
@@ -126,14 +124,10 @@ const Home = () => {
             </div><Link to = {`/orders/${product.id}`}><button className="btn btn-xs btn-outline">Details <FaAngleRight/> </button></Link>
             
             </div>
-
           </div>
           </div>
         ))}
       </div>
-
-
-      
   </div>
   );
 };

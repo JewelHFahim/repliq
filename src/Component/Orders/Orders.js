@@ -9,7 +9,6 @@ const Orders = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    //   axios.get("https://fakestoreapi.com/products")
     axios.get("./Orders.json").then((response) => {
       setProducts(response.data);
     });
@@ -27,12 +26,7 @@ const Orders = () => {
           </p>
           <GoSettings className="absolute right-20 text-xl font-semibold text-white" />
         </div>
-
-        <input
-          type="text"
-          placeholder="Search"
-          className="input  input-bordered w-full max-w-xs"
-        />
+        <input type="text" placeholder="Search" className="input  input-bordered w-full max-w-xs" />
       </div>
 
     {/* Order Short Summery */}
@@ -47,26 +41,23 @@ const Orders = () => {
         {products.map((product) => (
 
           <div>
-
           <div className="px-5 py-2 mx-5 rounded-lg bg-base-100 shadow-xl lg:h-full">
-          <div className="flex justify-between">
-          <p className="font-semibold">Order: #{product.id}</p>
-          <p>16/12/22</p>
-          </div>
-
+            <div className="flex justify-between">
+              <p className="font-semibold">Order: #{product.id}</p>
+              <p>16/12/22</p>
+            </div>
             <div className="flex justify-between rounded-md items-center py-2">
-            <div className="flex">
-            <img className="w-12 lg:w-24" src={product.image} alt=""/>
-            <div className="px-4">
-            <h2 className="">1 unit</h2>
-            <p className="text-info font-semibold">${product.price}</p>
+              <div className="flex">
+                <img className="w-12 lg:w-24" src={product.image} alt=""/>
+                <div className="px-4">
+                  <h2 className="">1 unit</h2>
+                  <p className="text-info font-semibold">${product.price}</p>
+                </div>
+              </div>
+              {
+                  product.payment === "PAID" ?  <button className="bg-green-100 p-2  rounded-lg font-semibold text-green-500">{product.payment}</button>  : <button  className="bg-orange-100 p-2  rounded-lg font-semibold text-orange-500">{product.payment}</button>  
+              }
             </div>
-            </div>
-             {
-                product.payment === "PAID" ?  <button className="bg-green-100 p-2  rounded-lg font-semibold text-green-500">{product.payment}</button>  : <button  className="bg-orange-100 p-2  rounded-lg font-semibold text-orange-500">{product.payment}</button>  
-            }
-            </div>
-
 
             <hr />
             <div className="mt-2 flex justify-between">
@@ -75,9 +66,7 @@ const Orders = () => {
                 product.status === "confirmed" ? <p className="rounded-lg font-semibold text-green-500 flex items-center"><span className="badge badge-xs mr-2 badge-success"></span>{product.status}</p> : <p className="rounded-lg font-semibold text-orange-500"><span className="badge badge-xs mr-2 badge-error"></span>{product.status}</p>
             }
             </div><Link to = {`/orders/${product.id}`}><button className="btn btn-xs btn-outline">Details <FaAngleRight/> </button></Link>
-            
             </div>
-
           </div>
           </div>
         ))}

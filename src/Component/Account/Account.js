@@ -38,10 +38,10 @@ const Account = () => {
         </div>
 
         <div className='px-8 pt-5 bg-base-100 lg:px-20'>
-        <div className='flex justify-between'>
-          <p className='text-lg'>Default Method </p>
-          <p className='flex items-center'> Both Options <FaAngleRight className='ml-1'/></p>
-        </div>
+         <div className='flex justify-between'>
+           <p className='text-lg'>Default Method </p>
+           <p className='flex items-center'> Both Options <FaAngleRight className='ml-1'/></p>
+         </div>
         <div className='flex justify-between mt-5 pb-2'>
           <p className='text-lg'>Payment Profile</p>
           <p className='flex items-center'> Bank Account <FaAngleRight className='ml-1'/></p>
@@ -71,12 +71,12 @@ const Account = () => {
         <hr />
         {/* Order Short Summery */}
         <div className='mb-5'>
-        <h2 className='text-lg font-semibold my-4'>Transactions</h2>
-        <div className="flex justify-between">
-        <button className="bg-slate-200 rounded-2xl py-1 px-3 active"> On Hold (12)</button>
-        <button className="text-white bg-info font-semibold rounded-2xl py-1 px-3"> Payments (13)</button>
-        <button className="bg-slate-200 rounded-2xl py-1 px-3"> Refunds (1)</button>
-        </div>
+          <h2 className='text-lg font-semibold my-4'>Transactions</h2>
+          <div className="flex justify-between">
+            <button className="bg-slate-200 rounded-2xl py-1 px-3 active"> On Hold (12)</button>
+            <button className="text-white bg-info font-semibold rounded-2xl py-1 px-3"> Payments (13)</button>
+            <button className="bg-slate-200 rounded-2xl py-1 px-3"> Refunds (1)</button>
+          </div>
         </div>
 
 

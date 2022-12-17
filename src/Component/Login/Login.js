@@ -41,7 +41,6 @@ const Login = () => {
               <input {...register("email")} required type="email" placeholder="email" className="input input-bordered"/>
             </div>
 
-
             <div className="form-control"><label className="label"><span className="label-text">Password</span></label>
               <input {...register("password")} required type="password" placeholder="password" className="input input-bordered"/>
               

@@ -16,7 +16,6 @@ const ManageOrder = () => {
 
   return (
     <div className="mb-14">
-    <div className="px-5">
 
       {/* Header Portion */}
       <div className="py-5 bg-info  text-center">
@@ -47,7 +46,7 @@ const ManageOrder = () => {
           </div>
         ))}
 
-        <div className="">
+        <div className="px-5">
         <table className="table w-full">
         <tbody>
 
@@ -72,7 +71,7 @@ const ManageOrder = () => {
       </div>
 
         {/* Share Details */}
-        <div className=" mx-10 bg-base-100 py-5">
+        <div className="px-5 mx-5 bg-base-100 py-5">
         <div className="mt-2 flex justify-between">
         <p>CUSTOMER DETAILS</p>
            <div className='flex items-center text-xl text-info font-semibold'>
@@ -85,37 +84,37 @@ const ManageOrder = () => {
 
         
         {/* Customer Details */}
-        <div className="">
+        <div className="px-5">
         <table className="table w-full">
         <tbody>
-        <tr>
-        <td>Name:</td>
-        <td>Solaiman Shukhon</td>
-      </tr>
+          <tr>
+            <td>Name:</td>
+            <td>Solaiman Shukhon</td>
+          </tr>
         <tr>
         <td>Mobile:</td>
         <td className="flex items-center justify-between">+8801712121212
-        <div className="flex text-4xl"><FaPhoneSquareAlt className=" text-info mr-2"/>
-        <FaWhatsappSquare className="text-green-700"/></div>
+          <div className="flex text-4xl"><FaPhoneSquareAlt className=" text-info mr-2"/>
+          <FaWhatsappSquare className="text-green-700"/></div>
         </td>
       </tr>
         <tr>
-        <td>Address:</td>
-        <td>House-1, Road-12, Gulshan-1</td>
+          <td>Address:</td>
+          <td>House-1, Road-12, Gulshan-1</td>
       </tr>
         <tr>
-        <td>Pin Code: </td>
-        <td>4TO63</td>
+          <td>Pin Code: </td>
+          <td>4TO63</td>
       </tr>
         <tr>
-        <td>City</td>
-        <td>Dhaka</td>
+          <td>City</td>
+          <td>Dhaka</td>
       </tr>
         <tr>
-        <td>Payment</td>
-        <td className="flex  justify-between">Cash on Delivery
-        <button  className="bg-orange-100 p-2  rounded-lg font-semibold text-orange-500">ODD</button> 
-        </td>
+          <td>Payment</td>
+          <td className="flex  justify-between">Cash on Delivery
+           <button  className="bg-orange-100 p-2  rounded-lg font-semibold text-orange-500">ODD</button> 
+          </td>
       </tr>
       </tbody>
       </table>
@@ -126,7 +125,6 @@ const ManageOrder = () => {
           <button className="btn btn-success">Accept Order</button>
         </div>
 </div>
-    </div>
     </div>
   );
 };

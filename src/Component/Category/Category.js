@@ -18,22 +18,23 @@ const Category = () => {
     <div className="mb-14">
         {/* Header Portion */}
       <div className="py-5 bg-info  text-center">
-        <div className="flex items-center justify-center relative">
-          <p className="my-2 text-lg font-semibold text-white ">
-            Categories
-          </p>
-          <BsSearch className="absolute right-20 text-xl font-semibold text-white" />
-        </div>
+          <div className="flex items-center justify-center relative">
+            <p className="my-2 text-lg font-semibold text-white ">
+              Categories
+            </p>
+            <BsSearch className="absolute right-20 text-xl font-semibold text-white" />
+          </div>
 
-      <div className="flex justify-around pt-2 text-white">
-        <button className="font-bold underline"> Products </button>
-        <button className="font-semibold"> Category </button>
-    </div>
+        <div className="flex justify-around pt-2 text-white">
+          <button className="font-bold underline"> Products </button>
+          <button className="font-semibold"> Category </button>
+        </div>
       </div>
 
     {/*All Items*/}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 p-5">
-        {products.map((product) => (
+        {
+          products.map((product) => (
           <div key = {product.id}>
           <div className="px-5 py-2 mx-5 rounded-lg bg-base-100 shadow-xl lg:h-full">
             <div className="flex justify-between rounded-md items-center py-2">
@@ -64,9 +65,7 @@ const Category = () => {
       <button className=" text-white bg-orange-500 p-2 rounded-lg mb-20 text-xl font-semibold flex items-center
         bottom-1 lg:right-0 fixed"> <MdOutlineAddCircleOutline className="mr-1 text-xl"/> Add new productt </button>
       </div>
-
-
-
+      
     </div>
   );
 };

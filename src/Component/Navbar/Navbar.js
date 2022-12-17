@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const { user, logOut } = useContext(UserContext);
 
-  const handleLogout = (adta) =>{
+  const handleLogout = () =>{
     logOut()
     .then(()=>{})
     .catch(error => console.log(error))
@@ -37,11 +37,8 @@ const Navbar = () => {
        </Link></li>
       </>
       :
-
       <li><Link to ="/login">Login</Link></li>
-
     }
-      
     </>
   )
 
@@ -51,58 +48,56 @@ const Navbar = () => {
     {/* Large Devices */}
 
     <div className=" hidden lg:flex navbar bg-base-100">
-  <div className="flex-1">
-    <a href="/" className="btn btn-ghost normal-case text-xl">Repliq</a>
+      <div className="flex-1">
+        <a href="/" className="btn btn-ghost normal-case text-xl">Repliq</a>
+      </div>
+      <div className="hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+        {menuItems}
+        <li></li>
+        </ul>
+      </div>
   </div>
-  <div className="hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-    {menuItems}
-    <li></li>
-    </ul>
-  </div>
-</div>
 
     {/* Small Devices */}
 
-   <div className="btm-nav bg-base-100 z-10 lg:hidden ">
+    <div className="btm-nav bg-base-100 z-10 lg:hidden ">
+      <NavLink to="/" isActive > 
+        <button>
+          <AiOutlineHome className="text-2xl bg-active"/>
+          <span className="btm-nav-label text-[12px]">Home</span>
+        </button>
+      </NavLink>
+
+      <NavLink to="/orders" isActive> <button>
+        <AiOutlineShopping className="text-2xl bg-active"/>
+          <span className="btm-nav-label text-[12px]">Orders</span>
+        </button>
+      </NavLink>
 
 
- <NavLink to="/" isActive > 
-  <button>
-    <AiOutlineHome className="text-2xl bg-active"/>
-    <span className="btm-nav-label text-[12px]">Home</span>
-  </button>
-  </NavLink>
+      <NavLink to="/categories" isActive
+      ><button >
+          <BiCategory className="text-2xl"/>
+          <span className="btm-nav-label text-[12px]">Products</span>
+        </button>
+      </NavLink>
 
- <NavLink to="/orders" isActive> <button>
-   <AiOutlineShopping className="text-2xl bg-active"/>
-    <span className="btm-nav-label text-[12px]">Orders</span>
-  </button>
-</NavLink>
+      <NavLink to="/manageorder" isActive>
+      <button>
+          <FiLayers className="text-2xl"/>
+          <span className="btm-nav-label text-[12px]">Manage</span>
+        </button>
+      </NavLink>
 
+      <NavLink to = "/account" isActive>
+      <button className="text-2xl">
+          <AiOutlineUser />
+          <span className="btm-nav-label text-[12px]">Account</span>
+        </button>
+      </NavLink>
+    </div>
 
-<NavLink to="/categories" isActive
- ><button >
-    <BiCategory className="text-2xl"/>
-    <span className="btm-nav-label text-[12px]">Products</span>
-  </button>
-</NavLink>
-
-<NavLink to="/manageorder" isActive>
-<button>
-    <FiLayers className="text-2xl"/>
-    <span className="btm-nav-label text-[12px]">Manage</span>
-  </button>
-</NavLink>
-
-<NavLink to = "/account" isActive>
-<button className="text-2xl">
-    <AiOutlineUser />
-    <span className="btm-nav-label text-[12px]">Account</span>
-  </button>
-</NavLink>
-
-  </div>
     </div>
   );
 };
