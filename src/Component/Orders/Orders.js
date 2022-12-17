@@ -42,7 +42,7 @@ const Orders = () => {
         <button className="bg-slate-300 rounded-lg py-1 px-2"> Yesterday(0)</button>
     </div>
 
-    {/*All Orders */}
+      {/*All Orders */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 p-5">
         {products.map((product) => (
 
@@ -85,7 +85,8 @@ const Orders = () => {
 
     {/* Report Button */}
       <div className="relative">
-      <button className="text-white bg-info px-3 py-1 rounded-3xl mb-20 text-xl font-semibold flex items-center  right-0 bottom-1 fixed"><AiOutlineDownload className="mr-2 font-bold"/> Report </button>
+      <button className="text-white bg-info px-3 py-1 rounded-3xl mb-20 text-xl font-semibold flex items-center
+       right-0 bottom-1 fixed"><AiOutlineDownload className="mr-2 font-bold"/> Report </button>
       </div>
 
 

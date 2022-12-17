@@ -84,10 +84,10 @@ const Home = () => {
 </div>
 
 {/* Status */}
-<div className="flex justify-around items-center mb-28">
+<div className="flex justify-around items-center mb-6 mx-4">
 <p className="btn btn-sm border-0 btn-info text-white">Pending (150)</p>
-<p className="btn btn-sm border-0 bg-slate-400 text-slate-800">Accepted (50)</p>
-<p className="btn btn-sm border-0 bg-slate-400 text-slate-800">Shipped (350)</p>
+<p className="btn btn-sm border-0 bg-slate-200 text-slate-800">Accepted (50)</p>
+<p className="btn btn-sm border-0 bg-slate-200 text-slate-800">Shipped (350)</p>
 </div>
 
 

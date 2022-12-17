@@ -31,8 +31,6 @@ const Category = () => {
     </div>
       </div>
 
-    
-
     {/*All Items*/}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 p-5">
         {products.map((product) => (
@@ -62,9 +60,11 @@ const Category = () => {
       </div>
 
     {/* Add Product Button */}
-       <div className="relative">
-      <button className="text-white bg-orange-500 p-3 rounded-lg mb-20 text-xl flex items-center  right-[35%] lg:right-0 bottom-1 fixed"><MdOutlineAddCircleOutline className="mr-1 text-xl"/> Add new product</button>
+    <div className="relative w-full flex justify-center">
+      <button className=" text-white bg-orange-500 p-2 rounded-lg mb-20 text-xl font-semibold flex items-center
+        bottom-1 lg:right-0 fixed"> <MdOutlineAddCircleOutline className="mr-1 text-xl"/> Add new productt </button>
       </div>
+
 
 
     </div>

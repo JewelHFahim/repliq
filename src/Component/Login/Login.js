@@ -1,103 +1,62 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { UserContext } from "../../Context/AuthProvider";
 
 const Login = () => {
 
-  const { handleSubmit, register, formState: { errors } } = useForm();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
-  const hadnleSignUp = (data) => {
+  const { register, handleSubmit } = useForm();
+  const {logIn} = useContext(UserContext);
+
+  const hadnleLogin = (data, event) => {
+    const form = event.target;
     console.log(data);
+
+    logIn(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success('Login Success');
+        form.reset();
+        navigate(from, {replace: true})
+      })
+      .catch((error) => console.error(error));
   };
 
+
   return (
-    <div className="min-h-screen flex justify-center items-center py-5 px-5 mb-12 ">
-      <div className="w-full lg:w-96 shadow-xl border p-8 rounded-xl bg-base-100">
-        <h1 className="text-2xl text-center text-info">Sign Up</h1>
+    <div className=" h-screen lg:w-6/12 mx-auto p-8 mb-10">
+      <div className="hero-content flex-col">
+        <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+          <p className="text-3xl text-center mt-2">Login</p>
+          <form className="card-body" onSubmit={handleSubmit(hadnleLogin)}>
 
-        <form onSubmit={handleSubmit(hadnleSignUp)}>
+            <div className="form-control">
+              <label className="label"><span className="label-text">Email</span></label>
+              <input {...register("email")} required type="email" placeholder="email" className="input input-bordered"/>
+            </div>
 
-        {/* User Name */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Name</span>
-            </label>
-            <input
-              {...register("name", { required: "Name is required" })}
-              type="text"
-              placeholder="name"
-              className="input input-bordered w-full"
-            />
-            {errors.name && (<p className="text-error" role="alert">{errors.email?.message}</p>)}
-          </div>
 
-        {/* User Email */}
-          <div className="form-control w-full">
-            <label className="label"><span className="label-text">Email</span></label>
-            <input
-              {...register("email", { required: "Email Address is required" })}
-              type="email"
-              placeholder="email"
-              className="input input-bordered w-full"
-            />
-            {errors.email && (
-              <p className="text-error" role="alert">
-                {errors.email?.message}
-              </p>
-            )}
-          </div>
+            <div className="form-control"><label className="label"><span className="label-text">Password</span></label>
+              <input {...register("password")} required type="password" placeholder="password" className="input input-bordered"/>
+              
+              <label className="label">
+                <Link to="/signup" className="label-text-alt link link-hover">
+                  New in Repliq? <span className="text-info font-semibold">Signup </span>
+                </Link>
+              </label>
+            </div>
 
-        {/* User Phone */}
-        <div className="form-control w-full">
-            <label className="label"><span className="label-text">Phone</span></label>
-            <input
-              {...register("phone", { required: "Email Address is required" })}
-              type="number"
-              placeholder="phone"
-              className="input input-bordered w-full"
-            />
-            {errors.email && (
-              <p className="text-error" role="alert">
-                {errors.email?.message}
-              </p>
-            )}
-          </div>
-
-          {/* Phone */}
-
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Password</span>
-            </label>
-            <input
-              {...register("password", {
-                required: "Password Address is required",
-                pattern: {
-                //   value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{6}/,
-                  message: "must be strong",
-                },
-              })}
-              type="text"
-              placeholder="password"
-              className="input input-bordered w-full"
-            />
-            {errors.password && (
-              <p className="text-error" role="alert">
-                {errors.password?.message}
-              </p>
-            )}
-          </div>
-
-          <input type="submit" value="Signup" className="btn btn-info w-full text-white mt-4" />
-
-        </form>
-
-        <p className="text-center text-sm mt-2">
-          Already have an account?
-          <Link to="/login" className=" font-semibold">
-             Login
-          </Link>
-        </p>
-
+            <div className="form-control mt-6">
+              <button className="btn btn-info">Login</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

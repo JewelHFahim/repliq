@@ -16,6 +16,8 @@ const ManageOrder = () => {
 
   return (
     <div className="mb-14">
+    <div className="px-5">
+
       {/* Header Portion */}
       <div className="py-5 bg-info  text-center">
         <div className="relative">
@@ -26,7 +28,7 @@ const ManageOrder = () => {
 <div className="lg:px-40">
 
   {/*All Orders */}
-  <div className="px-5">
+  <div className="">
         {products.map((product) => (
           <div>
           <div className="px-5 py-2 mx-5 border rounded-lg bg-base-100 lg:h-full">
@@ -45,7 +47,7 @@ const ManageOrder = () => {
           </div>
         ))}
 
-        <div className="px-5 ">
+        <div className="">
         <table className="table w-full">
         <tbody>
 
@@ -63,16 +65,14 @@ const ManageOrder = () => {
         <td>Grand Total</td>
         <td className="text-right"> ${ 1198 + 113.98  +20 }</td>
       </tr>
-
       </tbody>
       </table>
-
         </div>
+        <hr />
       </div>
 
-      <hr />
-          {/* Share Details */}
-        <div className="px-5 mx-10 bg-base-100 py-5">
+        {/* Share Details */}
+        <div className=" mx-10 bg-base-100 py-5">
         <div className="mt-2 flex justify-between">
         <p>CUSTOMER DETAILS</p>
            <div className='flex items-center text-xl text-info font-semibold'>
@@ -80,11 +80,12 @@ const ManageOrder = () => {
            <p className='ml-2'>Share</p>
            </div>
             </div>
+            <hr />
         </div>
 
-          <hr />
-          {/* Customer Details */}
-        <div className="px-5 mx-5">
+        
+        {/* Customer Details */}
+        <div className="">
         <table className="table w-full">
         <tbody>
         <tr>
@@ -113,26 +114,19 @@ const ManageOrder = () => {
         <tr>
         <td>Payment</td>
         <td className="flex  justify-between">Cash on Delivery
-
         <button  className="bg-orange-100 p-2  rounded-lg font-semibold text-orange-500">ODD</button> 
-        
         </td>
       </tr>
-
       </tbody>
       </table>
 
         </div>
-
         <div className="mx-5 p-5 flex justify-around">
           <button className="btn btn-outline btn-error">Reject Order</button>
           <button className="btn btn-success">Accept Order</button>
         </div>
-
-
-
 </div>
-      
+    </div>
     </div>
   );
 };
