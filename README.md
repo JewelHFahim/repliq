@@ -1,3 +1,3 @@
 This is a e-commerce website. Mainly design for mobile device and admin panel. You have to login or signup fisrt to explore the app. Here, I didn't use any backed side or server side data. I used some fake data and a free API. Most of the button may not functional. Main focus was design user interface. From mobile device this app will show UI nicely.
 
-USED: react, firebase, tailwind, daisy ui and some npm packages
+USED: react.js, node.js firebase, tailwind, daisy ui and some npm packages
